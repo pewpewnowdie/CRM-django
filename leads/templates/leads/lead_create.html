@@ -8,11 +8,13 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>This is all leads</h1>
-        {% for lead in leads %}
-            <div class="lead">
-                {{ lead.first_name }} {{ lead.last_name }}. Age : {{ lead.age }}
-            </div>
-        {% endfor %}
+        <a href="/leads">Back to all leads</a>
+        <hr/>
+        <h1>Create Lead</h1>
+        <form method="post">
+            {% csrf_token%}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
     </body>
 </html>
