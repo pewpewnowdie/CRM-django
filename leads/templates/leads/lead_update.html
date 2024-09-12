@@ -10,10 +10,11 @@
     <body>
         <a href="/leads">Back to all leads</a>
         <hr/>
-        <h1>These are details of {{lead}} </h1>
-        <p>Age: {{lead.age}}</p>
-        <p>Agent for this Lead: {{lead.agent}}</p>
-        <a href="/leads/{{lead.pk}}/update/">Update</a>
-        <a href="/leads/{{lead.pk}}/delete/">Delete</a>
+        <h1>Update {{lead}} </h1>
+        <form method="post">
+            {% csrf_token%}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
     </body>
 </html>
