@@ -124,3 +124,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/leads'
 LOGOUT_REDIRECT_URL = '/leads'
+LOGIN_URL = '/login'
