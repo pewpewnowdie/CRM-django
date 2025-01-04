@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.signals import post_save
 from django.contrib.auth.models import AbstractUser
 
 
@@ -27,3 +28,9 @@ class Agent(models.Model):
 
     def __str__(self) -> str:
         return self.user.username
+
+def post_save_user_created(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+post_save.connect(post_save_user_created, sender=User)
